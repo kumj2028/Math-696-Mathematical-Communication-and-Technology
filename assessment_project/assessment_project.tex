@@ -99,24 +99,122 @@
 %                         Start here
 % --------------------------------------------------------------
  
-\title{Project 3 Writing An Assessment}%replace X with the appropriate number
+\title{Project 3 Writing An Assessment
+\\ Week 5: The Product and Quotient Rules and Derivatives of Trig Functions}
+%replace X with the appropriate number
 \author{Mengxiang Jiang\\ %replace with your name
 Math 696 Mathematical Communication and Technology} %if necessary, replace with your course title
  
 \maketitle
  
 \begin{problem}{1} %You can use theorem, exercise, problem, or question here.
-    Given that $\tan(x) = \frac{\sin(x)}{\cos(x)}$, $\sin'(x) = \cos(x)$, $\cos'(x) = -\sin(x)$, 
-    $\left(\frac{f(x)}{g(x)}\right)' = \frac{f'(x)g(x) - f(x)g'(x)}{g^2(x)}$,
-    and the identity $\sin(x)^2 + \cos(x)^2 = 1$, what is the derivative of $\tan(x)$?
-    \begin{enumerate}
-      \item $\frac{\cos(x)}{\sin(x)}$
-      \item $\frac{1}{\sin(x)^2}$
-      \item $1$
-      \item $\frac{1}{\cos(x)^2}$
-      \item $0$
-    \end{enumerate}
+Let
+\[
+  f(x) = (3x^2 - 2x)\sin x.
+\]
+Compute $f'(x)$.
 
+\begin{enumerate}
+  \item $(6x - 2)\cos x +(3x^2 - 2x)\sin x$
+  \item $(6x - 2)\sin x +(3x^2 - 2x)\cos x$
+  \item $(6x - 2)\sin x -(3x^2 - 2x)\cos x$
+  \item $(6x - 2)\cos x -(3x^2 - 2x)\sin x$
+\end{enumerate}
+Solution:\\
+To compute $f'(x)$, we apply the product rule as well as $(\sin x)' = \cos x$:
+\[
+  f'(x) = (3x^2 - 2x)'\sin x + (3x^2 - 2x)(\sin x)' 
+  = (6x - 2)\sin x + (3x^2 - 2x)\cos x.
+\]
+This is choice (b).\\
+This problem is worth 3 points and can be given partial credit as follows:
+\begin{itemize}
+  \item 1 point for either writing the product rule or applying it correctly.
+  \item 1 point for computing the derivative of $3x^2 - 2x$ correctly.
+  \item 1 point for computing the derivative of $\sin x$ correctly.
+\end{itemize}
+\end{problem}
+
+\pagebreak
+
+\begin{problem}{2}
+Let
+\[
+  g(x) = \frac{\tan x}{x}.
+\]
+Compute $g'(x)$.
+
+\begin{enumerate}
+  \item $\displaystyle \frac{x\sec^2 x -\tan x}{x^2}$
+  \item $\displaystyle \frac{\sec^2 x -\tan x}{x}$
+  \item $\displaystyle \frac{x\sec^2 x +\tan x}{x^2}$
+  \item $\displaystyle \frac{x\tan^2 x -\sec^2 x}{x^2}$
+\end{enumerate}
+Solution:\\
+To compute $g'(x)$, we apply the quotient rule as well as $(\tan x)' = \sec^2 x$:
+\[
+  g'(x) = \frac{(\tan x)'\cdot x - \tan x\cdot (x)'}{x^2}
+  = \frac{x\sec^2 x - \tan x}{x^2}.
+\]
+This is choice (a).\\
+This problem is worth 3 points and can be given partial credit as follows:
+\begin{itemize}
+  \item 1 point for either writing the quotient rule or applying it correctly.
+  \item 1 point for computing the derivative of $\tan x$ correctly.
+  \item 1 point for computing the derivative of $x$ correctly.
+\end{itemize}
+\end{problem}
+
+\pagebreak
+
+\begin{problem}{3} %You can use theorem, exercise, problem, or question here.
+(Note: One thing I didn't like about this week's lecture was that\\
+$\lim_{x \to 0} \frac{\sin x}{x} = 1$ was given without proof. I think it is 
+important to prove this before it is used in the proof of the derivative of 
+$\sin x$. Here is an alternative way to prove the derivative of $\sin x$ without
+using this limit.)\\
+One of the most famous identities in mathematics is Euler's formula:
+\[
+  e^{ix} = \cos x + i\sin x.
+\]
+This identity also gives us a way to represent the sine and cosine functions
+as exponential functions by taking advantage of the even and odd properties of 
+the sine and cosine, with $e^{-ix} = \cos(-x) + i\sin(-x) = \cos x - i\sin x$
+and adding or subtracting the two equations:
+\[
+  \sin x = \frac{e^{ix} - e^{-ix}}{2i}, \quad
+  \cos x = \frac{e^{ix} + e^{-ix}}{2}.
+\]
+Using this representation as well as $\frac{d}{dx}e^{cx} = ce^{cx}$, 
+compute the derivative of $\sin x$.\\
+(The derivative of the exponential function was covered in the previous week.)
+\\\\
+Solution:\\
+Use the identity:
+\[
+  \sin(x) = \frac{e^{ix} - e^{-ix}}{2i}
+\]
+Differentiate both sides with respect to $x$:
+\[
+\begin{aligned}
+  \frac{d}{dx}\sin(x) &= \frac{d}{dx}\left(\frac{e^{ix} - e^{-ix}}{2i}\right)\\
+  &= \frac{1}{2i} \left( \frac{d}{dx} e^{ix} - \frac{d}{dx} e^{-ix} \right)\\
+  &= \frac{1}{2i} \left( i e^{ix} + i e^{-ix} \right)
+\end{aligned}
+\]
+Factor out $i$ and simplify:
+\[
+\begin{aligned}
+  \frac{d}{dx}\sin(x) &= \frac{i}{2i} (e^{ix} + e^{-ix})\\
+  &= \frac{e^{ix} + e^{-ix}}{2} = \cos(x).
+\end{aligned}
+\]
+This problem is worth 3 points and can be given partial credit as follows:
+\begin{itemize}
+  \item 1 point for differentiating the exponential functions.
+  \item 1 point for proper algebraic manipulations.
+  \item 1 point for showing that the final answer is the identity for $\cos x$.
+\end{itemize}
 \end{problem}
 % --------------------------------------------------------------
 %     You don't have to mess with anything below this line.
