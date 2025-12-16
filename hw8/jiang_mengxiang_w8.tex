@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amssymb} % Required for math stuff
+\usepackage{graphicx} % Required for inserting images
+
+
+\newtheorem{theorem}{Theorem}[section]
+
+\title{Week 8 Submission}
+\author{Mengxiang Jiang}
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+There's an often told story of Hippasus, a mathematician during 
+Pythagoras's time, that found out that the length of the diagonal of 
+a square was not commensurate with the length of its side. He was 
+apparently drowned for this discovery by the Pythagoreans. At some 
+level, I can sympathize with the Pythagoreans, since this proof
+is deeply unsettling when I first read it. Like, rational numbers
+can be made as small and accurate as you want, what do you mean
+there's something it can't perfectly describe? And even after
+learning real analysis, the way $\sqrt{2}$ is actually described
+(whether it's a Dedekind cut, equivalence class of Cauchy
+sequences, or something else) leaves much to be desired.
+I much prefer the algebraic treatment of $\sqrt{2}$ instead,
+where just like $i$, we just claim it's not a part of the rationals
+and adjoin it, without making any claims about what it really is.
+So my proof won't say that $\sqrt{2}$ is irrational, but rather
+that the rational numbers do not have such a number.
+
+\section{The Proof}
+\begin{theorem}
+$$\forall q \in \mathbb{Q}, q^2 \ne 2.$$
+\end{theorem}
+
+\begin{proof}
+Assume for contradiction that there does exist a number $q$ in the rationals whose
+square is 2. We use the property that all rational numbers can be written in the
+most reduced form (proof of this property left to the reader) to write 
+\[
+    q = \frac{a}{b},
+\] 
+where $a, b \in \mathbb{Z}$, $b \ne 0$, and $a$ and $b$ are coprime.
+Thus
+\[
+    q^2 = 2 = \frac{a^2}{b^2},
+\]
+which implies
+\[
+    2b^2 = a^2.
+\]
+We use the property that the product of even numbers is even and the product
+of odd numbers is odd (proof left to the reader) to conclude that $a$ must be
+even since $a^2$ is even. Thus we can write $a=2c$ for some $c \in \mathbb{Z}$.
+We then have
+\[
+    q^2 = 2 = \frac{(2c)^2}{b^2},
+\]
+which implies
+\[
+    2b^2 = 4c^2.
+\]
+Dividing both sides by 2, we have
+\[
+    b^2 = 2c^2,
+\]
+which using the latter property again tells us $b$ is even. But this
+contradicts the fact that $a$ and $b$ are coprime since they both share
+a factor of 2.
+\end{proof}
+
+
+
+\end{document}
