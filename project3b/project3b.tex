@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amssymb} % Required for math stuff
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tikz} % Required for drawing graphs
+\usepackage{hyperref} % Required for hyperlinks
+
+\newenvironment{conjecture}[2][Conjecture]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}
+{\end{trivlist}}
+
+\title{Project 3}
+\author{Mengxiang Jiang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+One of my favorite websites to visit is the Online Encyclopedia of 
+Integer Sequences (OEIS) \cite{sloane2003line}. It is a vast database 
+of integer sequences that people from all over the world can contribute 
+to and use for research. Each sequence has a unique identifier, 
+starting with the letter `A' followed by six digits. For example, 
+the sequence of prime numbers is identified as A000040. Today, I want to 
+explore the very first sequence in the database: A000001. 
+This sequence counts the number of groups of order $n$. 
+I will not go into much detail about what a group is, other 
+than it is a set of elements with an operation that satisfies 
+certain properties. The order of a group is just the number 
+of elements in the group. Let us take a look at the first few 
+terms of the sequence A000001:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$n$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\hline
+$a(n)$ & 0 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 5 & 2 & 2 \\
+\hline
+\end{tabular}
+\end{center}
+The sequence doesn't look like it's growing very quickly 
+at first glance. However, as we look at larger values of $n$, 
+we can see that the number of groups of order $n$ does 
+indeed increase. For instance, there are 267 groups of order 64. 
+So how fast does the sequence grow? This is a surprisingly 
+difficult question, and to give you a sense of the complexity, 
+how about we play a little game by Matthew Macauley \cite{macauley_2025}. 
+Here are the values of the number of groups of order $n$ for $n$ 
+from 1014 to 1023:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$n$ & 1013 & 1014 & 1015 & 1016 & 1017 & 1018 & 1019 
+& 1020 & 1021 & 1022 & 1023 \\
+\hline
+$a(n)$ & 1 & 23 & 2 & 12 & 2 & 2 & 1 & 37 & 1 & 4 & 2\\
+\hline
+\end{tabular}
+\end{center}
+Can you guess the number of groups of order 1024? 
+Take a moment to think about it before scrolling down for the answer.
+
+\pagebreak
+
+\section{Groups of Order $2^n$ Dominates Conjecture}
+So the number of groups of order 1024 is 49,487,367,289 
+which was only determined in 2021 by David Burrell \cite{burrell2022number}. 
+That's a huge jump from the previous values! One of the reasons why
+there are so many groups of order 1024 is that 1024 is a power of 2.
+Without going into too much detail, groups of order $p^n$ 
+for a prime number $p$ tend to have more complex structures and 
+thus more distinct groups.
+For example, $n = 729 = 3^6$ has 504 groups. However, powers of 2 are so
+dominant that they account for more than 99\% of all groups of order 
+less than 2000. Calculating the exact number of groups of 
+order $n$ as $n$ grows is still very difficult, 
+with John Conway saying that the ``human race will never know the 
+exact number of groups of order 2048."
+Which brings us to the main conjecture I want to discuss today:
+\begin{conjecture}{Groups of Order $2^n$ Dominates}
+    Almost all finite groups are of order $2^n$. That is
+    \[
+        \lim_{n \to \infty} \frac{a(2^n)}{\sum_{k=1}^{n} a(k)} = 1.
+    \]
+\end{conjecture}
+Given the information we have so far, this conjecture seems almost
+trivially true. However, it has not been proven rigorously yet.
+
+\begin{section}{Bibliography}
+    \bibliographystyle{plain}
+    \bibliography{refs}
+\end{section}
+
+\end{document}
